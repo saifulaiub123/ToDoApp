@@ -14,9 +14,9 @@ namespace ToDo.Infrastructure.DBContext
             _currentUser = currentUser;
         }
 
-        public DbSet<Otp> Otps { get; set; }
+
         public DbSet<ApplicationUser> Users { get; set; }
-        public DbSet<Agent> Agent { get; set; }
+
         public DbSet<TODO> ToDo { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
