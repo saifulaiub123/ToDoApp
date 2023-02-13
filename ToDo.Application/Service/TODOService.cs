@@ -30,14 +30,14 @@ namespace ToDo.Application.Service
 
         public async Task<List<TODOViewModel>> GetAll()
         {
-            var toDos = await _toDoRepository.GetAll();
+            var toDos = await _toDoRepository.GetAll(x=> x.User);
             var data = _mapper.Map<List<TODOViewModel>>(toDos);
             return data;
         }
 
         public async Task<TODOViewModel> GetById(int id)
         {
-            var toDo = await _toDoRepository.GetById(id);
+            var toDo = await _toDoRepository.FindBy(x=> x.Id == id);
             var data = _mapper.Map<TODOViewModel>(toDo);
             return data;
         }

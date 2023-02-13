@@ -12,6 +12,7 @@ namespace ToDo.Domain.Mapping
             CreateMap<TODO, TODOModel>()
                 .ReverseMap();
             CreateMap<TODO, TODOViewModel>()
+                .ForMember(a => a.UserName, b => b.MapFrom(b => b.User.Email))
                 .ReverseMap();
         }
     }
