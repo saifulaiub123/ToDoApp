@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using System;
 using ToDo.Domain.DBModel;
 
 namespace ToDo.Infrastructure.Configuration
@@ -9,6 +8,9 @@ namespace ToDo.Infrastructure.Configuration
     {
         public void Configure(EntityTypeBuilder<TODO> builder)
         {
+            builder.HasIndex(x => x.UserId)
+               .IsUnique(false);
+
             builder.Property(x => x.Status)
                 .IsRequired();
             builder.Property(x => x.Name)
@@ -19,6 +21,11 @@ namespace ToDo.Infrastructure.Configuration
                 .HasMaxLength(500);
             builder.Property(x => x.UserId)
                 .IsRequired();
+
+            builder.HasOne(x=> x.User)
+                .WithOne(x=> x.TODOUser)
+                .HasForeignKey<TODO>(x=> x.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

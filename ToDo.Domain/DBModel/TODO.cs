@@ -8,5 +8,7 @@ namespace ToDo.Domain.DBModel
         public string Description { get; set; }
         public int UserId { get; set; }
         public int Status { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
     }
 }

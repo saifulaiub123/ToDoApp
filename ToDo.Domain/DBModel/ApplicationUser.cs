@@ -6,5 +6,7 @@ namespace ToDo.Domain.DBModel
     {
         public int Status { get; set; }
         public string Name { get; set; }
+
+        public virtual TODO TODOUser { get; set; }
     }
 }
