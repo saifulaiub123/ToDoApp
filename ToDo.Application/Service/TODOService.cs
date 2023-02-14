@@ -28,9 +28,18 @@ namespace ToDo.Application.Service
             await _toDoRepository.SaveAsync();
         }
 
-        public async Task<List<TODOViewModel>> GetAll()
+        public async Task<List<TODOViewModel>> GetAll(int? toDoStatus)
         {
-            var toDos = await _toDoRepository.GetAll(x=> x.User);
+            var toDos = new List<TODO>();
+            if(toDoStatus != null)
+            {
+                toDos = (List<TODO>)await _toDoRepository.GetAll(x => x.Status == toDoStatus,y => y.User);
+            }
+            else
+            {
+                toDos = (List<TODO>)await _toDoRepository.GetAll(y => y.User);
+            }
+            
             var data = _mapper.Map<List<TODOViewModel>>(toDos);
             return data;
         }

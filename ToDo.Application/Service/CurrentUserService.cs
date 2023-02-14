@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Http;
 
 namespace ToDo.Application.Service
 {
-    public class CurrentUser : ICurrentUser
+    public class CurrentUserService : ICurrentUser
     {
         private readonly IHttpContextAccessor _accessor;
-        public CurrentUser(IHttpContextAccessor accessor)
+        public CurrentUserService(IHttpContextAccessor accessor)
         {
             _accessor = accessor;
         }

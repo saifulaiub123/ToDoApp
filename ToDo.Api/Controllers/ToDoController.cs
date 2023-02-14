@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Application.IService;
+using ToDo.Domain.Enum;
 using ToDo.Domain.Model;
 
 namespace ToDo.Api.Controllers
@@ -24,9 +25,9 @@ namespace ToDo.Api.Controllers
         }
         [HttpGet]
         [Route("GetAll")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] int? toDostatus)
         {
-            var result = await _toDoService.GetAll();
+            var result = await _toDoService.GetAll(toDostatus);
             return Ok(result);
         }
         [HttpGet]

@@ -9,7 +9,7 @@ namespace ToDo.Application.Dependency
     {
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddScoped<ICurrentUser, CurrentUser>();
+            services.AddScoped<ICurrentUser, CurrentUserService>();
             services.AddScoped<ITODOService, TODOService>();
             return services;
         }

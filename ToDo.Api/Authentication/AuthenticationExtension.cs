@@ -4,9 +4,6 @@ using ToDo.Application.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using ToDo.Domain.Constant;
-using ToDo.Domain.DBModel;
-using Microsoft.AspNetCore.Identity;
-using ToDo.Domain.Enum;
 
 namespace ToDo.Api.Authentication
 {
