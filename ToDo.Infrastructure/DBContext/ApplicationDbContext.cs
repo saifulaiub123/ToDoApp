@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 using ToDo.Domain.DBModel;
+using ToDo.Domain.Enum;
 using ToDo.Domain.IEntity;
 
 namespace ToDo.Infrastructure.DBContext
